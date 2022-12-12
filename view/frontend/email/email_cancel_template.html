@@ -1,0 +1,6 @@
+<!--@subject {{trans "Here your Comment Response "}}  @-->
+{{template config_path="design/email/header_template"}}
+<table>
+    <tr>{{trans "Pre-Order is : %templateVar" templateVar=$data.status}}</tr>
+</table>
+{{template config_path="design/email/footer_template"}}

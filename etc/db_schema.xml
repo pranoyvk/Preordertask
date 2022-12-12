@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="PreOrder_Table">
+        <column xsi:type="int" name="id" identity="true" unsigned="true" nullable="false" comment="student id"/>
+        <column xsi:type="varchar" name="firstname" nullable="false" length="255" comment="Customer Firstname"/>
+        <column xsi:type="varchar" name="lastname" nullable="false" length="255" comment="Customer Lastname"/>
+        <column xsi:type="int" name="quantity" nullable="false" comment="Quantity"/>
+        <column xsi:type="varchar" name="email" nullable="false" length="255" comment="Customer Email"/>
+        <column xsi:type="timestamp" name="created_at" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <!-- <column xsi:type="timestamp" name="updated_at" comment="Updated At"/> -->
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

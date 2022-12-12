@@ -1,0 +1,40 @@
+<?php
+$collection = $block->getProduct()->getData('somecode');
+if ($collection) {
+    ?>
+<form data-mage-init='{"validation":{}}' method="POST" action="preorder/index/submit" data-hasrequired="* Required Fields">
+   <fieldset class="fieldset">
+      <div class="field name required">
+         <label class="label" for="FirstName"><span data-bind="i18n: 'FirstName'"></span></label>
+         <input type="text" name="firstname" class="input-text" data-validate="{
+         'required':true,
+         'letters-only':true,
+         'no-whitespace':true
+      }">
+      </div>
+      <div class="field name required">
+         <label class="label" for="LastName"><span data-bind="i18n: 'LastName'"></span></label>
+         <input type="text" name="lastname" class="input-text" data-validate="{
+         'letters-only':true,
+         'no-whitespace':true
+      }">
+      </div>
+      <div class="field name required">
+         <label class="label" for="email"><span data-bind="i18n: 'Email'"></span></label>
+         <input type="text" name="email" class="input-text" data-validate="{
+         'required':true,
+         'validate-email':true
+      }" aria-required="true">
+      </div>
+      <div class="field name required">
+         <label class="label"><span data-bind="i18n: 'Quantity'"></span></label>
+         <input type="text" name="quantity" class="input-text" data-validate="{
+         'required':true
+      }" aria-required="true">
+      </div>
+   </fieldset>
+   <button class="action primary"><?= __('Order') ?></button>
+</form>
+    <?php
+}
+?>
