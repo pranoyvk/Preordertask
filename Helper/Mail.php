@@ -7,56 +7,54 @@ use Magento\Framework\Mail\Template\TransportBuilder;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\Translate\Inline\StateInterface;
 use Magento\Store\Model\StoreManagerInterface;
+use Magento\Framework\DataObject;
 
 class Mail extends AbstractHelper
 {
 
     /**
-     * TransportBuilder apply
-     *
      * @var TransportBuilder
      */
-
     protected $transportBuilder;
 
     /**
-     * StoreManagerInterface apply
-     *
      * @var StoreManagerInterface
      */
-
     protected $storeManager;
 
     /**
-     * StateInterface apply
-     *
      * @var StateInterface
      */
-
     protected $inlineTranslation;
 
     /**
-     * Constructor Injuction
-     *
+     * @var DataObject
+     */
+     protected $postObject;
+
+    /**
      * @param Context $context
      * @param TransportBuilder $transportBuilder
      * @param StoreManagerInterface $storeManager
      * @param StateInterface $state
+     * @param DataObject $postObject
      */
 
     public function __construct(
         Context $context,
         TransportBuilder $transportBuilder,
         StoreManagerInterface $storeManager,
-        StateInterface $state
+        StateInterface $state,
+        DataObject $postObject
     ) {
         $this->transportBuilder = $transportBuilder;
         $this->storeManager = $storeManager;
         $this->inlineTranslation = $state;
+        $this->postObject = $postObject;
         parent::__construct($context);
     }
     /**
-     * Send mail
+     * Send mail Functionality
      *
      * @param string $email
      * @param string $action
@@ -64,21 +62,18 @@ class Mail extends AbstractHelper
 
     public function sendEmail($email, $action)
     {
-        // this is an example and you can change template id,fromEmail,toEmail,etc as per your need.
-        $templateId = 'email_cancel_template'; // template id
-        $fromEmail = 'sales@example.com';  // sender Email id
-        $fromName = 'Admin';             // sender Name
-        $toEmail = $email; // receiver email id
+        $templateId = 'email_cancel_template';
+        $fromEmail = 'sales@example.com';
+        $fromName = 'Admin';
+        $toEmail = $email;
 
         try {
-            // template variables pass here
             $templateVars = [
                 'status' => $action
             ];
-                $postObject = new \Magento\Framework\DataObject();
-                $postObject->setData($templateVars);
+            $postObject = $this->postObject->setData($templateVars);
             $storeId = $this->storeManager->getStore()->getId();
-
+         
             $from = ['email' => $fromEmail, 'name' => $fromName];
             $this->inlineTranslation->suspend();
 

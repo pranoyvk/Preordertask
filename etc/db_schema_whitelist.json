@@ -6,7 +6,8 @@
             "lastname": true,
             "quantity": true,
             "email": true,
-            "created_at": true
+            "created_at": true,
+            "status": true
         },
         "constraint": {
             "PRIMARY": true

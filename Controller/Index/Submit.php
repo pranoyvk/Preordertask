@@ -11,22 +11,16 @@ use Magento\Framework\App\Action\Action;
 class Submit extends Action
 {
     /**
-     * Page Factory apply
-     *
      * @var PageFactory
      */
     protected $resultPageFactory;
     
     /**
-     * Data Factory apply
-     *
      * @var DataFactory
      */
     protected $_FormModel;
 
     /**
-     * Constructor Injection
-     *
      * @param Context $context
      * @param PageFactory $resultPageFactory
      * @param Data $_FormModel
@@ -43,7 +37,7 @@ class Submit extends Action
     }
 
     /**
-     * Controler execute method
+     * Saving Data to Database
      *
      * @return @var
      */

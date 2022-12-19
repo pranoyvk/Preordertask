@@ -11,6 +11,6 @@ class Data extends AbstractModel
      */
     protected function _construct()
     {
-        $this->_init('Magento\PreOrderTask\Model\ResourceModel\Data');
+        $this->_init(\Magento\PreOrderTask\Model\ResourceModel\Data::class);
     }
 }

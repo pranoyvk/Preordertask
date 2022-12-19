@@ -7,54 +7,43 @@ use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Backend\App\Action;
 use Magento\PreOrderTask\Helper\Mail;
+use Magento\Framework\App\Request\Http;
+use Magento\PreOrderTask\Model\DataFactory;
+use Magento\Framework\App\ResourceConnection;
 
 class Cancel extends Action
 {
     /**
-     * Page Factory apply
-     *
      * @var PageFactory
      */
     private $pageFactory;
 
     /**
-     * Mail function
-     *
      * @var Mail
      */
     protected $helperMail;
 
     /**
-     * Mail function
-     *
      * @var ResultFactory
      */
     protected $resultFactory;
 
     /**
-     * Http function
-     *
      * @var Http
      */
     protected $request;
     
     /**
-     * Http function
-     *
      * @var Http
      */
     protected $model;
 
     /**
-     * Http function
-     *
      * @var Http
      */
     protected $resource;
 
     /**
-     * Constructor Injuction
-     *
      * @param Context $context
      * @param PageFactory $rawFactory
      * @param Mail $helperMail
@@ -69,9 +58,9 @@ class Cancel extends Action
         PageFactory $rawFactory,
         Mail $helperMail,
         ResultFactory $resultFactory,
-        \Magento\Framework\App\Request\Http $request,
-        \Magento\PreOrderTask\Model\DataFactory $model,
-        \Magento\Framework\App\ResourceConnection $resource
+        Http $request,
+        DataFactory $model,
+        ResourceConnection $resource
     ) {
         $this->pageFactory = $rawFactory;
         $this->helperMail = $helperMail;
@@ -83,7 +72,7 @@ class Cancel extends Action
     }
 
     /**
-     * Controler execute method
+     * By using this method to send the mail
      *
      * @return @var
      */
@@ -99,7 +88,7 @@ class Cancel extends Action
     }
 
     /**
-     * Controler execute method
+     *  To get the customer email
      *
      * @return string
      */
@@ -110,7 +99,7 @@ class Cancel extends Action
     }
 
     /**
-     *  Data
+     *  To load the particular row from the grid
      *
      * @return @var
      */

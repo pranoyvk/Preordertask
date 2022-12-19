@@ -1,7 +1,10 @@
 <?php
 $collection = $block->getProduct()->getData('somecode');
 if ($collection) {
-    ?>
+/**
+ * phpcs:disable
+ */
+   ?>
 <form data-mage-init='{"validation":{}}' method="POST" action="preorder/index/submit" data-hasrequired="* Required Fields">
    <fieldset class="fieldset">
       <div class="field name required">
@@ -37,4 +40,5 @@ if ($collection) {
 </form>
     <?php
 }
+/** phpcs:enable */
 ?>

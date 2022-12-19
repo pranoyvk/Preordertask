@@ -9,6 +9,6 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
      */
     protected function _construct()
     {
-        $this->_init('Magento\PreOrderTask\Model\Data', 'Magento\PreOrderTask\Model\ResourceModel\Data');
+        $this->_init(\Magento\PreOrderTask\Model\Data::class, \Magento\PreOrderTask\Model\ResourceModel\Data::class);
     }
 }
